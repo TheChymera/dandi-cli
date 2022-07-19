@@ -118,11 +118,11 @@ def summary(
         path_list = []
         for asset in dandiset.get_assets():
             i = f"dummy/{asset.path}"
-            if "sub-MITU01h3" in i and "sub-MITU01" in i:
-                lgr.warning("Fixing subject field inconsistencies:")
-                lgr.warning(" - Pre-repair:  %s", i)
-                i = i.replace("sub-MITU01h3", "sub-MITU01")
-                lgr.warning(" + Post-repair: %s", i)
+            # if "sub-MITU01h3" in i and "sub-MITU01" in i:
+            #    lgr.warning("Fixing subject field inconsistencies:")
+            #    lgr.warning(" - Pre-repair:  %s", i)
+            #    i = i.replace("sub-MITU01h3", "sub-MITU01")
+            #    lgr.warning(" + Post-repair: %s", i)
             # ome.zarr support pending:
             # https://github.com/dandi/dandi-cli/pull/1050
             if "ome.zarr" not in i:
