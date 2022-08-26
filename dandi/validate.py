@@ -42,7 +42,6 @@ class Scope(Enum):
 def validate_bids(
     *paths: Union[str, Path],
     schema_version: Optional[str] = None,
-    devel_debug: bool = False,
     report: bool = False,
     report_path: str = "",
 ) -> dict:
@@ -68,7 +67,7 @@ def validate_bids(
         patterns.
     """
 
-    from .support.bids.validator import validate_bids as validate_bids_
+    from bidsschematools.validator import validate_bids as validate_bids_
 
     if report and not report_path:
         log_dir = appdirs.user_log_dir("dandi-cli", "dandi")
@@ -79,8 +78,6 @@ def validate_bids(
     validation_result = validate_bids_(
         paths,
         schema_version=schema_version,
-        schema_reference_root="{module_path}/schemadata",
-        debug=devel_debug,
         report_path=report_path,
     )
     return dict(validation_result)
